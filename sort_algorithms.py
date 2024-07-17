@@ -43,14 +43,18 @@ def merge_sort_main(n):
     return n
         
 def merge_sort(target_list,st_idx,ed_idx):
+    #終了条件
     if not (st_idx < ed_idx):
         return
-
+    
+    #中央のインデックス
     mid_idx=(st_idx + ed_idx) // 2
     
+    #左分割
     merge_sort(target_list,st_idx,mid_idx)
+    #右分割
     merge_sort(target_list,mid_idx+1,ed_idx)
-    
+    #結合
     merge(target_list,st_idx,mid_idx,ed_idx)
 
 def merge(target_list,st_idx,mid_idx,ed_idx):
@@ -82,7 +86,3 @@ def merge(target_list,st_idx,mid_idx,ed_idx):
         target_list[idx]=right_cp_list[right_idx]
         right_idx+=1
         idx+=1
-
-    
-data=[0,5,2,1,3,9,6,7,8,4]
-print(merge_sort_main(data))
